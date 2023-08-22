@@ -1,0 +1,15 @@
+/* styles.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Your custom styles can go here */
+* {
+    box-sizing: border-box;
+}
+body {
+    color: #0f172a;
+}
+.dark {
+    color: #e2e8f0;
+}
