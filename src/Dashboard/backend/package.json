@@ -1,0 +1,38 @@
+{
+  "name": "whale-cms-backend",
+  "version": "1.0.0",
+  "description": "Whale CMS Backend ",
+  "main": "index.ts",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
+  },
+  "keywords": [
+    "CMS"
+  ],
+  "author": "Mohammad Kiyan",
+  "license": "MIT",
+  "dependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.17",
+    "@types/multer": "^1.4.7",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^7.4.1",
+    "multer": "^1.4.5-lts.1",
+    "typescript": "^5.1.6"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "concurrently": "^8.2.0",
+    "nodemon": "^3.0.1"
+  }
+}
