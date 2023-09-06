@@ -27,6 +27,7 @@ import SensitivityFields from "./SensitivityFields";
 import Relays from "./Relay";
 import LeftToolbar from "./toolbars/LeftToolbar";
 import RightToolbar from "./toolbars/RightToolbar";
+import DeviceInfo from "./DeviceInfo";
 
 interface CrossInterface {
   id?: number;
@@ -78,29 +79,29 @@ const Cross: React.FC<CrossInterface> = ({
 
   return (
     <div className="flex flex-row justify-between w-full h-full p-4">
-      <div className="h-full w-[400px]">
+      <div className="h-full w-[250px]">
         <LeftToolbar />
       </div>
-      <div className="relative w-full h-full">
-        <div className="absolute left-1/2 -translate-x-[50%]  top-[120px] w-[520px] overflow-hidden">
+      <div className="flex flex-col items-center justify-start gap-2 h-full w-[600px]">
+      <div className="w-full">
+        <DeviceInfo />
+      </div>
+      <div className="relative w-full h-fit">
+        <div className="absolute left-1/2 -translate-x-[50%] top-16  w-[520px] overflow-hidden">
           <Image src={crossImage} alt="Cross Image" width={540} height={400} />
         </div>
-        <div className="absolute left-0 top-0 w-full items-start flex justify-center gap-6 overflow-auto">
-          <IDFields
-            senderID={ipTables.protocol + ipTables.subnet + id}
-            recieverID={ipTables.protocol + ipTables.subnet + pairId}
-          />
-        </div>
-        <div className="absolute left-1/2 top-1/3 translate-x-[-16px] -translate-y-8">
+        <div className="absolute left-1/2 top-28 translate-x-[-16px] ">
           <LEDs id={id} />
         </div>
-        <div className="absolute left-1/2 -translate-x-[51%]  bottom-1/4 w-fit">
+        <div className="absolute left-1/2 -translate-x-[51%]  top-96 w-fit">
           <div className="flex flex-row gap-1 -rotate-90 w-28  bg-black scale-90">
             <SevenSegmentDisplay value={missionTimer} digits={4} />
           </div>
         </div>
       </div>
-      <div className="h-full w-[400px]">
+      </div>
+      
+      <div className="h-full w-[250px]">
         <RightToolbar crossIndex={index}/>
       </div>
     </div>

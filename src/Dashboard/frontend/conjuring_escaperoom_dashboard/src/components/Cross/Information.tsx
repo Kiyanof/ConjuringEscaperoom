@@ -57,7 +57,7 @@ const Information: React.FC<InformationInterface> = ({
   }, [battery]);
 
   return (
-    <div className="flex flex-row w-full border border-slate-300 dark:border-slate-800 p-4 my-4 rounded-xl justify-between items-center">
+    <div className="flex flex-row gap-2 justify-between items-center">
       {items.map((item, index) => (
         <FontAwesomeIcon key={index} icon={item.icons[item.param]} />
       ))}

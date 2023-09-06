@@ -1,13 +1,11 @@
-import React, { HTMLAttributes } from "react";
+import React from "react";
 import Toolbar, {ToolbarInterface } from "./Toolbar";
 import Section from "./Section";
-import { faAnchor, faAnchorLock, faClock, faCross, faDownLeftAndUpRightToCenter } from "@fortawesome/free-solid-svg-icons";
-import Button from "./Button";
-import Sensitivity from "../Sensitivity";
-import Relays from "../Relay";
+import { faAnchorLock, faClock, faDigitalTachograph, faDownLeftAndUpRightToCenter } from "@fortawesome/free-solid-svg-icons";
 import TimeFields from "../TimeFields";
 import SensitivityFields from "../SensitivityFields";
 import RelayFields from "../RelayFields";
+import Score from "../sections/Scores";
 
 interface RightToolbar extends ToolbarInterface {
     crossIndex?: number;
@@ -15,44 +13,18 @@ interface RightToolbar extends ToolbarInterface {
 
 const RightToolbar: React.FC<RightToolbar> = ({crossIndex = 0}) => {
 
-    const controlCenters = [
-        {
-            title: 'Cross Panel',
-            icon: faCross,
-            onclick: () => null,
-        },
-        {
-            title: 'Relay Panel',
-            icon: faAnchor,
-            onclick: () => null,
-        },
-        {
-            title: 'Delay Panel',
-            icon: faClock,
-            onclick: () => null,
-        },
-        {
-            title: 'Cross Distance Panel',
-            icon: faDownLeftAndUpRightToCenter,
-            onclick: () => null,
-        },
-        {
-            title: 'Relays Distance Panel',
-            icon: faAnchorLock,
-            onclick: () => null,
-        },
-
-    ]
-
     return (
         <Toolbar>
-            <Section title="وقفه ها">
+            <Section index={3} title="وقفه ها" icon={faClock}>
                 <TimeFields id={100} missionTimerChangeFunction={() => null}/>
             </Section>
-            <Section title="فاصله صلیب ها">
+            <Section index={4} title="مدیریت امتیاز" icon={faDigitalTachograph}>
+                <Score />
+            </Section>
+            <Section index={5} title="فاصله صلیب ها" icon={faDownLeftAndUpRightToCenter}>
                 <SensitivityFields crossIndex={crossIndex}/>
             </Section>
-            <Section title="رله های واکنش دهنده">
+            <Section index={6} title="فاصله رله های واکنش دهنده" icon={faAnchorLock}>
                 <RelayFields crossIndex={crossIndex} />
             </Section>
         </Toolbar>
