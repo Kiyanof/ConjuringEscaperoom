@@ -14,6 +14,7 @@ const Score: React.FC<ScoreInterface> = ({crossIndex = 0}) => {
 
   const cross = useSelector((state: RootState) => state.cross.cross[crossIndex])
   const [score, setScore] = useState({...cross.scoreVal})
+  const [totalScore, setTotalScore] = useState(cross.score)
   const dispatch = useDispatch() 
 
   const handleDamageChange = (inp: number) => {
@@ -38,6 +39,16 @@ const Score: React.FC<ScoreInterface> = ({crossIndex = 0}) => {
     const newScore = {...score}
     newScore.relay = inp
     setScore(newScore)
+  }
+
+  const handleTotalScoreChange = (inp: number) => {
+    setTotalScore(inp)
+  }
+
+  const submitTotalScore = () => {
+    const newCrossInformation = {...cross}
+    newCrossInformation.score = totalScore
+    dispatch(setCross({index: crossIndex, value: newCrossInformation}))
   }
 
   const submitScoreChange = () => {
@@ -77,10 +88,10 @@ const Score: React.FC<ScoreInterface> = ({crossIndex = 0}) => {
      },
      {
       title: "Total Score", 
-      score: 0, 
+      score: totalScore, 
       icon: faListNumeric,
-      onchange: () => null,
-      onsubmit: () => null,
+      onchange: handleTotalScoreChange,
+      onsubmit: (val: number) => submitTotalScore(),
    },
   ];
 
