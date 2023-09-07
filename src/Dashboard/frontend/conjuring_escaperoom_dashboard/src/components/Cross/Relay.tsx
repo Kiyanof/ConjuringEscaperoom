@@ -29,8 +29,11 @@ const Relays: React.FC<RelaysInterface> = ({crossIndex = 0}) => {
         const newRelays = [...relays]
         newRelays[index] = !newRelays[index]
         setRelays(newRelays)
+    }
+
+    const submitRelays = () => {
         const newCrossInformation = {...cross}
-        newCrossInformation.SensitiveRelay = newRelays
+        newCrossInformation.SensitiveRelay = relays
         dispatch(setCross({index: crossIndex, value: newCrossInformation}))
     }
 
@@ -49,6 +52,7 @@ const Relays: React.FC<RelaysInterface> = ({crossIndex = 0}) => {
             <Divider  className="mt-6"/>
             <div className=" flex-col flex ">
                 <FontAwesomeIcon
+                    onClick={() => submitRelays()}
                     className="font-medium text-xl border  border-slate-300 py-2 px-2 rounded-full cursor-pointer  hover:shadow-lg  transition-all duration-200 ease-in-out dark:shadow-slate-700 dark:border-slate-800"
                     icon={faCheck}
                 />

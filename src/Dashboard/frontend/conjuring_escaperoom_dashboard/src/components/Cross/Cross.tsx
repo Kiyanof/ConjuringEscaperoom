@@ -43,44 +43,14 @@ const Cross: React.FC<CrossInterface> = ({
   index = 0,
 }) => {
 
-  const cross = useSelector((state: RootState) => state.cross.cross)
 
   const [missionTimer, setMissionTimer] = useState<number>(0);
-  const [relayActive, setRelayActive] = useState<boolean>(false);
-  const [buzzerActive, setBuzzerActive] = useState<boolean>(false);
-  const [missionActive, setMissionActive] = useState<boolean>(false);
-
-  const [relaysPanel, setRelayPanel] = useState<boolean>(false);
-  const [sensitivityPanel, setSensitivityPanel] = useState<boolean>(true);
-  const [timePanel, setTimePanel] = useState<boolean>(true);
 
   const handleMissionTimerChange = (inp: number) => {
     setMissionTimer(inp);
   };
 
-  const handlePlay = () => {
-    const newState = !missionActive;
-    setMissionActive(newState);
-    if (newState) {
-      startAPI(id);
-    } else {
-      stopAPI(id);
-    }
-  };
-
-  const handleVolume = () => {
-    const newState = !buzzerActive;
-    setBuzzerActive(newState);
-    buzzerActiveAPI(id, newState);
-  };
-
-  const handleActive = () => {
-    const newState = !relayActive;
-    setRelayActive(newState);
-    if (newState) {
-    } else {
-    }
-  };
+  console.log(index)
 
   return (
     <div className="flex flex-row justify-between w-full h-full p-4">
