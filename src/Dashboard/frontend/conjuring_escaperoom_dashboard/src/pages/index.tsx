@@ -13,6 +13,11 @@ import DarkModeToggle from "@/components/navigation/DarkModeToggle";
 import { useEffect } from "react";
 import { initiateCross } from "@/redux/reducers/cross";
 import { fetchCrossInitialState } from "@/api/initiateRedux";
+import { AbsoluteIconButton } from "@/components/AbsoluteIconButton";
+import { faBars, faMusic } from "@fortawesome/free-solid-svg-icons";
+import RelayPage from "./Relay";
+import PlayerPage from "./Player";
+import SettingPage from "./Setting";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,7 +59,15 @@ export default function Home() {
     <CrossPage key={1}/>,
     <MusicBoxPage key={2}/>, 
     <TagFinderPage key={3}/>, 
+    <RelayPage key={4}/>,
+    <PlayerPage key={5}/>,
+    <SettingPage key={6}/>
   ]
+
+
+  const handleTab = (index: number) => {
+    dispatch(setActiveTab(index));
+  }
 
   return (
     <>
@@ -78,6 +91,8 @@ export default function Home() {
                 {tab}
               </div>
             ))}
+            <AbsoluteIconButton onClick={() => handleTab(5)} icon={faMusic} position="left-0 bottom-0"/>
+            <AbsoluteIconButton onClick={() => handleTab(6)} icon={faBars} position="right-0 bottom-0"/>
           </main>
         </div>
       </div>
