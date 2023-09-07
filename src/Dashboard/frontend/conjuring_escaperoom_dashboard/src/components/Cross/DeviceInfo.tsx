@@ -3,6 +3,8 @@ import Information from "./Information"
 import { faListNumeric, faUserInjured } from "@fortawesome/free-solid-svg-icons"
 import { useSelector } from "react-redux"
 import { RootState } from "@/redux"
+import { useEffect } from "react"
+import { crossInterface } from "@/redux/reducers/cross"
 
 interface DeviceInfoInterface {
     crossIndex?: number,
@@ -11,6 +13,7 @@ interface DeviceInfoInterface {
 const DeviceInfo: React.FC<DeviceInfoInterface> = ({crossIndex = 0}) => {
 
     const isVisible = useSelector((state: RootState) => state.cross.toolbarViews[7].visible)
+    const cross = useSelector((state: RootState) => state.cross.cross)
 
     return (
         <div className={`${isVisible ? 'block' : 'hidden'} w-full h-[48px] rounded-lg bg-slate-200 dark:bg-slate-800 `}>
@@ -19,19 +22,19 @@ const DeviceInfo: React.FC<DeviceInfoInterface> = ({crossIndex = 0}) => {
                     <Information battery={4} rssi={-90}/>
                 </div>
                 <div>
-                    <span className="inline-flex"><h5>صلیب</h5>: <span className="pr-2 tracking-widest">1</span></span>
+                    <span className="inline-flex"><h5>صلیب</h5>: <span className="pr-2 tracking-widest">{crossIndex + 1}</span></span>
                 </div>
                 <div>
-                    <span className="inline-flex"><h5>آدرس</h5>: <span className="pr-2 tracking-widest">192.168.0.100</span></span>
+                    <span className="inline-flex"><h5>آدرس</h5>: <span className="pr-2 tracking-widest">{cross?.[crossIndex]?.ip}</span></span>
                 </div>
                 <div>
-                    <span className="inline-flex"><h5>وضعیت</h5>: <span className="pr-2 tracking-widest">فعال</span></span>
+                    <span className="inline-flex"><h5>وضعیت</h5>: <span className="pr-2 tracking-widest">{cross?.[crossIndex]?.active ? 'فعال' : 'غیرفعال'}</span></span>
                 </div>
                 <div>
-                    <span className="inline-flex mt-2"><FontAwesomeIcon icon={faUserInjured}/><span className="pr-2 tracking-widest">۰</span></span>
+                    <span className="inline-flex mt-2"><FontAwesomeIcon icon={faUserInjured}/><span className="pr-2 tracking-widest">{cross?.[crossIndex]?.injured}</span></span>
                 </div>
                 <div>
-                    <span className="inline-flex mt-2"><FontAwesomeIcon icon={faListNumeric}/><span className="pr-2 tracking-widest">۰</span></span>
+                    <span className="inline-flex mt-2"><FontAwesomeIcon icon={faListNumeric}/><span className="pr-2 tracking-widest">{cross?.[crossIndex]?.score}</span></span>
                 </div>
             </div>
         </div>

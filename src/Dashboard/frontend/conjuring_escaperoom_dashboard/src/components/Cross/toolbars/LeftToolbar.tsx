@@ -90,10 +90,10 @@ const LeftToolbar: React.FC<LeftToolbar> = ({ crossIndex = 0 }) => {
         <Actuator />
       </Section>
       <Section index={1} title="صلیب های واکنش دهنده" icon={faCross}>
-        <Sensitivity crossIndex={0} />
+        <Sensitivity crossIndex={crossIndex} />
       </Section>
       <Section index={2} title="رله های واکنش دهنده" icon={faAnchor}>
-        <Relays />
+        <Relays crossIndex={crossIndex}/>
       </Section>
     </Toolbar>
   );

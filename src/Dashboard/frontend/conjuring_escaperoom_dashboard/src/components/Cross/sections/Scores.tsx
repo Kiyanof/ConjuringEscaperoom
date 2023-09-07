@@ -1,34 +1,42 @@
 import Counter from "@/components/Form/Counter";
+import { RootState } from "@/redux";
 import { faAnchorLock, faDownLeftAndUpRightToCenter, faListNumeric, faTasks, faUserInjured } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
-interface ScoreInterface {}
+interface ScoreInterface {
+  crossIndex?: number,
 
-const Score: React.FC<ScoreInterface> = ({}) => {
+}
+
+const Score: React.FC<ScoreInterface> = ({crossIndex = 0}) => {
+
+  const cross = useSelector((state: RootState) => state.cross.cross)
+
   const fields = [
     {
         title: "Damage", 
-        score: 0, 
+        score: cross[crossIndex].scoreVal.damage, 
         icon: faUserInjured,
         onchange: () => null,
         onsubmit: () => null,
      },
      {
         title: "Mission", 
-        score: 0, 
+        score: cross[crossIndex].scoreVal.task, 
         icon: faTasks,
         onchange: () => null,
         onsubmit: () => null,
      },
      {
         title: "Cross Distance", 
-        score: 0, 
+        score: cross[crossIndex].scoreVal.cross, 
         icon: faDownLeftAndUpRightToCenter,
         onchange: () => null,
         onsubmit: () => null,
      },
      {
         title: "Relay Distance", 
-        score: 0, 
+        score: cross[crossIndex].scoreVal.relay, 
         icon: faAnchorLock,
         onchange: () => null,
         onsubmit: () => null,

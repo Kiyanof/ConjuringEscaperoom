@@ -1,5 +1,5 @@
 import express, { Request, Response, Router } from "express"
-import { addCross, getAllCross, setCrossByID } from "../controllers/crossController";
+import { addCross, deleteCrossByID, getAllCross, setCrossByID } from "../controllers/crossController";
 
 const router:Router = express.Router()
 
@@ -10,6 +10,7 @@ router.use((req: Request, res: Response, next) => {
 
 router.get('/getAll', getAllCross)
 router.post('/set/:id', setCrossByID)
+router.post('/delete/:id', deleteCrossByID)
 router.post('/add', addCross)
 
 export default router

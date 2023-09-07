@@ -8,6 +8,8 @@ import bodyParser from 'body-parser';
 
 import corsConfigs from './config/cors';
 
+import crossRouter from './routes/crossRouter'
+
 dotenv.config();
 
 const app: Express = express();
@@ -22,8 +24,6 @@ mongoose.connect(dbConfig.url)
     console.log('Error while connecting to database, Error: ', err);
   });
 
-
-
 // Allow all origins - you might want to configure this to match your frontend's domain
 app.use(cors(corsConfigs));
 // parse application/x-www-form-urlencoded
@@ -36,6 +36,19 @@ app.get('/', (req: Request, res: Response) => {
   res.send("Hello World");
 });
 
-app.listen(port, () => {
-  console.log(`WhaleCMS port: ${port}`);
-});
+app.use('/cross', crossRouter)
+
+async function startServer() {
+  try {
+
+    app.listen(port, () => {
+      console.log(`WhaleCMS port: ${port}`);
+    });
+  } catch (error) {
+    console.error('Error starting server:', error);
+  }
+}
+
+startServer();
+
+

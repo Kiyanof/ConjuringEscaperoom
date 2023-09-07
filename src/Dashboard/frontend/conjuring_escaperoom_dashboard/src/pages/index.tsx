@@ -3,20 +3,45 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/navigation/Navbar";
 import Links from "@/components/navigation/Links";
 import { setActiveTab } from "@/redux/reducers/theme";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux";
 import CrossPage from "./Cross";
 import MusicBoxPage from "./MusicBox";
 import TagFinderPage from "./TagFinder";
 import Clock from "@/components/navigation/Clock";
 import DarkModeToggle from "@/components/navigation/DarkModeToggle";
+import { useEffect } from "react";
+import { initiateCross } from "@/redux/reducers/cross";
+import { fetchCrossInitialState } from "@/api/initiateRedux";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchCrossInitialState();
+        if (data !== null) {
+
+          dispatch(initiateCross({value: data}));
+        } else {
+          // Handle the case when data is null, e.g., show an error message
+        }
+      } catch (error) {
+        console.error('Error fetching initial state:', error);
+        // Handle the error, e.g., show an error message
+      }
+    };
+
+    fetchData();
+  }, [dispatch]);
+
   const isDarkMode = useSelector((state: RootState) => state.theme.darkMode);
   const activeTab = useSelector((state: RootState) => state.theme.activeTab);
-
+  
   const links = [
     { title: "خانه", href: "" },
     { title: "صلیب ها", href: "" },

@@ -3,9 +3,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useState } from "react";
+import { RootState } from "@/redux";
+import { useSelector } from "react-redux";
 
 const CrossPage = () => {
 
+    const cross = useSelector((state: RootState) => state.cross.cross)
     const [activeIndex, setActiveIndex] = useState(0);
 
     const settings = {
@@ -35,7 +38,7 @@ const CrossPage = () => {
     return (
         <div className="w-full h-full p-2">
             <Slider   className="h-full" {...settings}>
-                {Array.from({length: 10}, (v, k) => (
+                {Array.from({length: cross.length}, (v, k) => (
                     <div key={k} className="h-[650px] w-full border border-slate-300 dark:border-slate-800 p-4 rounded-xl">
                         <Cross index={k}/>
                     </div>

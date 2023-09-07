@@ -8,16 +8,20 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ChangeEvent, useEffect, useState } from "react";
 import Counter from "../Form/Counter";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux";
 
 interface TimeFieldsInterface {
   missionTimerChangeFunction: (inp: number) => void,
-  id?: number,
+  crossIndex?: number,
 }
 
-const TimeFields: React.FC<TimeFieldsInterface> = ({missionTimerChangeFunction, id = 100}) => {
+const TimeFields: React.FC<TimeFieldsInterface> = ({missionTimerChangeFunction, crossIndex = 0}) => {
+
+  const cross = useSelector((state: RootState) => state.cross.cross)
 
   const [missionTimer, setMissionTimer] = useState<number>(0);
-  const [buzzerDelay, setBuzzerDelay] = useState<number>(500);
+  const [buzzerDelay, setBuzzerDelay] = useState<number>(cross[crossIndex].buzzerDelay);
 
 
   const handleMissionTimerChange = (inp: number) => {
@@ -64,11 +68,11 @@ const TimeFields: React.FC<TimeFieldsInterface> = ({missionTimerChangeFunction, 
   }, [handleTimeChange])
 
   const missionTimeSubmit = () => {
-    setDurationAPI(id, missionTimer)
+    setDurationAPI(crossIndex, missionTimer)
   }
 
   const buzzerDelaySubmit = () => {
-    setBuzzerDelayAPI(id, buzzerDelay)
+    setBuzzerDelayAPI(crossIndex, buzzerDelay)
   }
 
   const fields = [
@@ -92,7 +96,6 @@ const TimeFields: React.FC<TimeFieldsInterface> = ({missionTimerChangeFunction, 
     <div className="flex flex-col gap-4 justify-center items-center">
       {fields.map((field, index) => (
         <Counter icon={field.icon} value={field.value} onchange={field.onChange} onsubmit={field.onSubmit} key={index}/>
-        
       ))}
     </div>
   );

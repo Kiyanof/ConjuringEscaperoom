@@ -80,11 +80,11 @@ const Cross: React.FC<CrossInterface> = ({
   return (
     <div className="flex flex-row justify-between w-full h-full p-4">
       <div className="h-full w-[250px]">
-        <LeftToolbar />
+        <LeftToolbar crossIndex={index}/>
       </div>
       <div className="flex flex-col items-center justify-start gap-2 h-full w-[600px]">
       <div className="w-full">
-        <DeviceInfo />
+        <DeviceInfo crossIndex={index}/>
       </div>
       <div className="relative w-full h-fit">
         <div className="absolute left-1/2 -translate-x-[50%] top-16  w-[520px] overflow-hidden">

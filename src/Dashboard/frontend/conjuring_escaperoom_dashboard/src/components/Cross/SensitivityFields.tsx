@@ -5,6 +5,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ChangeEvent, useState } from "react";
 import Counter from "../Form/Counter";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux";
 
 interface SensitivityFieldsInterface {
   crossIndex?: number,
@@ -12,10 +14,9 @@ interface SensitivityFieldsInterface {
 
 const SensitivityFields: React.FC<SensitivityFieldsInterface> = ({crossIndex = 0}) => {
 
-  const [rssi, setRssi] = useState<number[]>([
-    70, 70, 70, 70, 70, 70, 70, 70, 70, 70
-  ]
-  );
+  const cross = useSelector((state: RootState) => state.cross.cross)
+
+  const [rssi, setRssi] = useState<number[]>(cross[crossIndex].toCrossRSSI);
 
   const handleRSSIChange = (value: number, index: number) => {
     const newValue = value;

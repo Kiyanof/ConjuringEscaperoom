@@ -16,10 +16,10 @@ const RightToolbar: React.FC<RightToolbar> = ({crossIndex = 0}) => {
     return (
         <Toolbar>
             <Section index={3} title="وقفه ها" icon={faClock}>
-                <TimeFields id={100} missionTimerChangeFunction={() => null}/>
+                <TimeFields crossIndex={crossIndex} missionTimerChangeFunction={() => null}/>
             </Section>
             <Section index={4} title="مدیریت امتیاز" icon={faDigitalTachograph}>
-                <Score />
+                <Score crossIndex={crossIndex}/>
             </Section>
             <Section index={5} title="فاصله صلیب ها" icon={faDownLeftAndUpRightToCenter}>
                 <SensitivityFields crossIndex={crossIndex}/>

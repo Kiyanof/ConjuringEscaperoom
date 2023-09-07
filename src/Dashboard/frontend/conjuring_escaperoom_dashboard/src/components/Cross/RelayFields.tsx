@@ -6,6 +6,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ChangeEvent, useState } from "react";
 import Counter from "../Form/Counter";
+import { RootState } from "@/redux";
+import { useSelector } from "react-redux";
 
 interface RelayFieldsInterface {
   crossIndex?: number,
@@ -13,10 +15,9 @@ interface RelayFieldsInterface {
 
 const RelayFields: React.FC<RelayFieldsInterface> = ({crossIndex = 0}) => {
 
-  const [rssi, setRssi] = useState<number[]>([
-    70, 70, 70, 70, 70, 70, 70, 70, 70, 70
-  ]
-  );
+  const cross = useSelector((state: RootState) => state.cross.cross)
+
+  const [rssi, setRssi] = useState<number[]>(cross[crossIndex].toRelayRSSI);
 
   const handleRSSIChange = (value: number, index: number) => {
     const newValue = value;
