@@ -1,0 +1,79 @@
+"filename", "language", "TypeScript", "JSON", "JSON with Comments", "Properties", "JavaScript", "TypeScript JSX", "CSS", "comment", "blank", "total"
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/.env", "Properties", 0, 0, 0, 12, 0, 0, 0, 0, 0, 12
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/config/cors.ts", "TypeScript", 10, 0, 0, 0, 0, 0, 0, 0, 4, 14
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/config/database.ts", "TypeScript", 6, 0, 0, 0, 0, 0, 0, 0, 4, 10
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/controllers/crossController.ts", "TypeScript", 106, 0, 0, 0, 0, 0, 0, 2, 12, 120
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/config/cors.js", "JavaScript", 0, 0, 0, 0, 11, 0, 0, 0, 1, 12
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/config/database.js", "JavaScript", 0, 0, 0, 0, 8, 0, 0, 0, 1, 9
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/controllers/cross/crossController.js", "JavaScript", 0, 0, 0, 0, 60, 0, 0, 0, 1, 61
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/controllers/crossController.js", "JavaScript", 0, 0, 0, 0, 125, 0, 0, 2, 1, 128
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/index.js", "JavaScript", 0, 0, 0, 0, 52, 0, 0, 3, 1, 56
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/middleware/filesystem/createDirectory.js", "JavaScript", 0, 0, 0, 0, 18, 0, 0, 3, 1, 22
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/middleware/filesystem/uploadFiles.js", "JavaScript", 0, 0, 0, 0, 20, 0, 0, 0, 1, 21
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/middleware/saveToDB.js", "JavaScript", 0, 0, 0, 0, 31, 0, 0, 0, 1, 32
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/models/cross/crossModel.js", "JavaScript", 0, 0, 0, 0, 35, 0, 0, 0, 1, 36
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/models/crossModel.js", "JavaScript", 0, 0, 0, 0, 29, 0, 0, 0, 1, 30
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/routes/cross/crossRouter.js", "JavaScript", 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/routes/crossRouter.js", "JavaScript", 0, 0, 0, 0, 17, 0, 0, 0, 1, 18
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/utils/date.js", "JavaScript", 0, 0, 0, 0, 13, 0, 0, 0, 1, 14
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/utils/server/createDatabase.js", "JavaScript", 0, 0, 0, 0, 46, 0, 0, 3, 1, 50
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/index.ts", "TypeScript", 35, 0, 0, 0, 0, 0, 0, 3, 17, 55
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/middleware/filesystem/createDirectory.ts", "TypeScript", 14, 0, 0, 0, 0, 0, 0, 3, 6, 23
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/middleware/filesystem/uploadFiles.ts", "TypeScript", 16, 0, 0, 0, 0, 0, 0, 0, 5, 21
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/middleware/saveToDB.ts", "TypeScript", 26, 0, 0, 0, 0, 0, 0, 0, 5, 31
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/models/crossModel.ts", "TypeScript", 28, 0, 0, 0, 0, 0, 0, 0, 3, 31
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/package-lock.json", "JSON", 0, 3389, 0, 0, 0, 0, 0, 0, 1, 3390
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/package.json", "JSON", 0, 39, 0, 0, 0, 0, 0, 0, 1, 40
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/routes/crossRouter.ts", "TypeScript", 12, 0, 0, 0, 0, 0, 0, 0, 4, 16
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/tsconfig.json", "JSON with Comments", 0, 0, 11, 0, 0, 0, 0, 90, 9, 110
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/utils/date.ts", "TypeScript", 9, 0, 0, 0, 0, 0, 0, 0, 1, 10
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/api/initiateRedux.ts", "TypeScript", -13, 0, 0, 0, 0, 0, 0, 0, -1, -14
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Button.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -56, 0, 0, -11, -67
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/Cross.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -103, 0, 0, -14, -117
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/DeviceInfo.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -39, 0, 0, -5, -44
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/IDFields.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -126, 0, 0, -12, -138
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/Information.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -58, 0, -2, -9, -69
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/LEDs.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -63, 0, 0, -12, -75
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/Relay.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -40, 0, 0, -7, -47
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/RelayFields.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -48, 0, 0, -16, -64
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/Sensitivity.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -40, 0, 0, -7, -47
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/SensitivityFields.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -47, 0, 0, -16, -63
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/SevenSegmentDisplay.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -49, 0, 0, -9, -58
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/TimeFields.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -89, 0, -1, -15, -105
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -55, 0, 0, -6, -61
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/sections/Actuator.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -55, 0, 0, -11, -66
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/sections/Scores.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -91, 0, 0, -13, -104
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/toolbars/Button.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -19, 0, 0, -6, -25
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/toolbars/LeftToolbar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -95, 0, 0, -8, -103
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/toolbars/RightToolbar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -31, 0, 0, -6, -37
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/toolbars/Section.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -37, 0, 0, -5, -42
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Cross/toolbars/Toolbar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -17, 0, 0, -8, -25
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Divider.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -11, 0, 0, -8, -19
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Form/Checkbox.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -74, 0, 0, -12, -86
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Form/Combobox.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -73, 0, 0, -8, -81
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Form/Counter.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -73, 0, 0, -11, -84
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Form/IconInput.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -36, 0, 0, -5, -41
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Form/Input.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -105, 0, 0, -11, -116
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Form/Range.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -35, 0, 0, -6, -41
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Form/SwitchButton.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -88, 0, 0, -11, -99
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/navigation/Clock.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -31, 0, -3, -7, -41
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/navigation/DarkModeToggle.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -16, 0, 0, -2, -18
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/navigation/Links.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -30, 0, 0, -7, -37
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/navigation/Navbar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -12, 0, 0, -4, -16
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/configs/ip.ts", "TypeScript", -5, 0, 0, 0, 0, 0, 0, 0, -2, -7
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/pages/Cross.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -45, 0, 0, -6, -51
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/pages/MusicBox.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -8, 0, 0, -2, -10
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/pages/TagFinder.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -8, 0, 0, -2, -10
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/pages/_app.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -14, 0, -1, -5, -20
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/pages/_document.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -12, 0, 0, -2, -14
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/pages/api/cross.ts", "TypeScript", -22, 0, 0, 0, 0, 0, 0, -1, -5, -28
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/pages/api/hello.ts", "TypeScript", -10, 0, 0, 0, 0, 0, 0, -1, -3, -14
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/pages/index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, -74, 0, -2, -11, -87
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/redux/index.ts", "TypeScript", -11, 0, 0, 0, 0, 0, 0, -2, -5, -18
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/redux/reducers/cross.ts", "TypeScript", -65, 0, 0, 0, 0, 0, 0, -5, -11, -81
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/redux/reducers/index.ts", "TypeScript", -8, 0, 0, 0, 0, 0, 0, -3, -4, -15
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/redux/reducers/theme.ts", "TypeScript", -26, 0, 0, 0, 0, 0, 0, -7, -8, -41
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/styles/fonts.css", "CSS", 0, 0, 0, 0, 0, 0, -4, 0, 0, -4
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/styles/globals.css", "CSS", 0, 0, 0, 0, 0, 0, -20, -2, -4, -26
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/utils/crossAPI.ts", "TypeScript", -60, 0, 0, 0, 0, 0, 0, 0, -15, -75
+"Total", "-", 42, 3428, 11, 12, 467, -1903, -24, 79, -288, 1824

@@ -8,8 +8,9 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ChangeEvent, useEffect, useState } from "react";
 import Counter from "../Form/Counter";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux";
+import { setCross } from "@/redux/reducers/cross";
 
 interface TimeFieldsInterface {
   missionTimerChangeFunction: (inp: number) => void,
@@ -18,10 +19,12 @@ interface TimeFieldsInterface {
 
 const TimeFields: React.FC<TimeFieldsInterface> = ({missionTimerChangeFunction, crossIndex = 0}) => {
 
-  const cross = useSelector((state: RootState) => state.cross.cross)
+  const length = useSelector((state: RootState) => state.cross.cross.length)
+    const cross = useSelector((state: RootState) => state.cross.cross[crossIndex])
 
+  const dispatch = useDispatch()
   const [missionTimer, setMissionTimer] = useState<number>(0);
-  const [buzzerDelay, setBuzzerDelay] = useState<number>(cross[crossIndex].buzzerDelay);
+  const [buzzerDelay, setBuzzerDelay] = useState<number>(cross.buzzerDelay);
 
 
   const handleMissionTimerChange = (inp: number) => {
@@ -69,10 +72,14 @@ const TimeFields: React.FC<TimeFieldsInterface> = ({missionTimerChangeFunction, 
 
   const missionTimeSubmit = () => {
     setDurationAPI(crossIndex, missionTimer)
+
   }
 
   const buzzerDelaySubmit = () => {
     setBuzzerDelayAPI(crossIndex, buzzerDelay)
+    const newCrossInformation = {...cross}
+    newCrossInformation.buzzerDelay = buzzerDelay
+    dispatch(setCross({index: crossIndex, value: newCrossInformation}))
   }
 
   const fields = [

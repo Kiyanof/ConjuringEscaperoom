@@ -91,7 +91,7 @@ export const setCrossByID = async (req: Request, res: Response, next: NextFuncti
         const updatedCollection = req.body
         const updateProcess = await Cross.findByIdAndUpdate(
             id,
-            updatedCollection,
+            {$set: {...updatedCollection, 'scoreVal': updatedCollection.scoreVal}},
             {new: true},
         )
 
@@ -103,7 +103,7 @@ export const setCrossByID = async (req: Request, res: Response, next: NextFuncti
 
             })
         }
-
+        
         res.status(200).json({
             status: true,
             error: null,

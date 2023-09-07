@@ -13,7 +13,8 @@ interface SensitivityInterface {
 }
 const Sensitivity: React.FC<SensitivityInterface> = ({crossIndex = 0}) => {
     
-    const cross = useSelector((state: RootState) => state.cross.cross)
+    const length = useSelector((state: RootState) => state.cross.cross.length)
+    const cross = useSelector((state: RootState) => state.cross.cross[crossIndex])
 
     let counter = 0
 
@@ -21,16 +22,18 @@ const Sensitivity: React.FC<SensitivityInterface> = ({crossIndex = 0}) => {
         return [fa1, fa2, fa3, fa4, fa5, fa6, fa7, fa8, fa9, fa0,]
     }, [])
 
+    console.log(crossIndex)
+
     return (
         <div>
             <div className={`grid grid-cols-2 gap-3`}> 
-                {Array.from({length: cross.length}, (v, k) => {
+                {Array.from({length: length}, (v, k) => {
                     let isSame = false
                     if(crossIndex === k) {
                         isSame = true
                         counter++
                     }
-                    return <Switch checked={cross[crossIndex].SensitiveCross[k] || isSame} disabled={isSame} icon={isSame ? faWarning : icons[counter++]} color={isSame ? 'danger' : 'success'}   key={k}  className=""/>
+                    return <Switch checked={cross.SensitiveCross[k] || isSame} disabled={isSame} icon={isSame ? faWarning : icons[counter++]} color={isSame ? 'danger' : 'success'}   key={k}  className=""/>
                 })}
             </div>
             <Divider  className="mt-6"/>

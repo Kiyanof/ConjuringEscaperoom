@@ -1,7 +1,9 @@
 import Counter from "@/components/Form/Counter";
 import { RootState } from "@/redux";
+import { crossInterface, setCross } from "@/redux/reducers/cross";
 import { faAnchorLock, faDownLeftAndUpRightToCenter, faListNumeric, faTasks, faUserInjured } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 interface ScoreInterface {
   crossIndex?: number,
@@ -10,36 +12,68 @@ interface ScoreInterface {
 
 const Score: React.FC<ScoreInterface> = ({crossIndex = 0}) => {
 
-  const cross = useSelector((state: RootState) => state.cross.cross)
+  const cross = useSelector((state: RootState) => state.cross.cross[crossIndex])
+  const [score, setScore] = useState({...cross.scoreVal})
+  const dispatch = useDispatch() 
+
+  const handleDamageChange = (inp: number) => {
+    const newScore = {...score}
+    newScore.damage = inp
+    setScore(newScore)
+  }
+
+  const handleMissionChange = (inp: number) => {
+    const newScore = {...score}
+    newScore.task = inp
+    setScore(newScore)
+  }
+
+  const handleCrossChange = (inp: number) => {
+    const newScore = {...score}
+    newScore.cross = inp
+    setScore(newScore)
+  }
+
+  const handleRelayChange = (inp: number) => {
+    const newScore = {...score}
+    newScore.relay = inp
+    setScore(newScore)
+  }
+
+  const submitScoreChange = () => {
+    const newCrossInfotmation = {...cross}
+    newCrossInfotmation.scoreVal = score
+    dispatch(setCross({index: crossIndex, value: newCrossInfotmation}))
+  }
 
   const fields = [
     {
         title: "Damage", 
-        score: cross[crossIndex].scoreVal.damage, 
+        score: score.damage, 
         icon: faUserInjured,
-        onchange: () => null,
-        onsubmit: () => null,
+        onchange: handleDamageChange,
+        onsubmit: (value: number) => submitScoreChange(),
      },
      {
         title: "Mission", 
-        score: cross[crossIndex].scoreVal.task, 
+        score: score.task, 
         icon: faTasks,
-        onchange: () => null,
-        onsubmit: () => null,
+        onchange: handleMissionChange,
+        onsubmit: (value: number) => submitScoreChange(),
      },
      {
         title: "Cross Distance", 
-        score: cross[crossIndex].scoreVal.cross, 
+        score: score.cross, 
         icon: faDownLeftAndUpRightToCenter,
-        onchange: () => null,
-        onsubmit: () => null,
+        onchange: handleCrossChange,
+        onsubmit: (value: number) => submitScoreChange(),
      },
      {
         title: "Relay Distance", 
-        score: cross[crossIndex].scoreVal.relay, 
+        score: score.relay, 
         icon: faAnchorLock,
-        onchange: () => null,
-        onsubmit: () => null,
+        onchange: handleRelayChange,
+        onsubmit: (value: number) => submitScoreChange(),
      },
      {
       title: "Total Score", 

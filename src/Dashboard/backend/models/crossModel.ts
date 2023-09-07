@@ -20,6 +20,7 @@ const schema = new mongoose.Schema(
         score: Number,
         injured: Number,
         buzzerDelay: Number,
+        missionTime: Number,
         scoreVal: ScoreSchema,
         toCrossRSSI: [Number],
         toRelayRSSI: [Number],

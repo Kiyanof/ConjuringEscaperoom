@@ -7,10 +7,10 @@ import { useState } from "react";
 import { setHealthAPI } from "@/utils/crossAPI";
 
 interface LEDsInterface {
-  id?: number
+  crossIndex?: number
 }
 
-const LEDs: React.FC<LEDsInterface> = ({id=100}) => {
+const LEDs: React.FC<LEDsInterface> = ({crossIndex=0}) => {
   const [health, setHealth] = useState(3);
   const [hearts, setHearts] = useState([greenImage, yellowImage, redImage]);
   
@@ -26,8 +26,8 @@ const LEDs: React.FC<LEDsInterface> = ({id=100}) => {
   const handleHeartAPI = (states: StaticImageData[]) => {
     const offState = grayImage
     states.map((state, index) => {
-      if(state !== offState) setHealthAPI(id, index+1, true)
-      else setHealthAPI(id, index+1, false)
+      if(state !== offState) setHealthAPI(crossIndex, index+1, true)
+      else setHealthAPI(crossIndex, index+1, false)
     })
   }
 

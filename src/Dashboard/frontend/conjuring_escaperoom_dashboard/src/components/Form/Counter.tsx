@@ -33,7 +33,7 @@ const Counter: React.FC<Counter> = ({
     }
 
     const handleSubmit = () => {
-        if(onsubmit) onsubmit(value)
+        if(onsubmit) onsubmit(val)
     }
 
     const handleMinus = () => {

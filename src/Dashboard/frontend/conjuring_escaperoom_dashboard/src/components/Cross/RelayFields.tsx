@@ -7,7 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ChangeEvent, useState } from "react";
 import Counter from "../Form/Counter";
 import { RootState } from "@/redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setCross } from "@/redux/reducers/cross";
 
 interface RelayFieldsInterface {
   crossIndex?: number,
@@ -15,9 +16,10 @@ interface RelayFieldsInterface {
 
 const RelayFields: React.FC<RelayFieldsInterface> = ({crossIndex = 0}) => {
 
-  const cross = useSelector((state: RootState) => state.cross.cross)
-
-  const [rssi, setRssi] = useState<number[]>(cross[crossIndex].toRelayRSSI);
+  const length = useSelector((state: RootState) => state.cross.cross.length)
+    const cross = useSelector((state: RootState) => state.cross.cross[crossIndex])
+  const dispatch = useDispatch()
+  const [rssi, setRssi] = useState<number[]>(cross.toRelayRSSI);
 
   const handleRSSIChange = (value: number, index: number) => {
     const newValue = value;
@@ -31,17 +33,19 @@ const RelayFields: React.FC<RelayFieldsInterface> = ({crossIndex = 0}) => {
   };
 
 
-  const rssiSubmit = (index: number) => {
-
+  const rssiSubmit = () => {
+    const newCrossInformation = {...cross}
+    newCrossInformation.toRelayRSSI = rssi
+    dispatch(setCross({index: crossIndex, value: newCrossInformation}))
   }
 
 
-  const fields = Array.from({length: 10}, (v, k) => {
+  const fields = Array.from({length: length}, (v, k) => {
     return {
       placeholder: (k+1),
       value: rssi[k],
       onChange: (value: number) => handleRSSIChange(value, k),
-      onSubmit: () => rssiSubmit(k),
+      onSubmit: () => rssiSubmit(),
     }
   })
 

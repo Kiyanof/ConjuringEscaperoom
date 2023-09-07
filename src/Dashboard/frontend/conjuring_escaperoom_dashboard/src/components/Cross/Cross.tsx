@@ -28,6 +28,8 @@ import Relays from "./Relay";
 import LeftToolbar from "./toolbars/LeftToolbar";
 import RightToolbar from "./toolbars/RightToolbar";
 import DeviceInfo from "./DeviceInfo";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux";
 
 interface CrossInterface {
   id?: number;
@@ -40,6 +42,9 @@ const Cross: React.FC<CrossInterface> = ({
   pairId = 110,
   index = 0,
 }) => {
+
+  const cross = useSelector((state: RootState) => state.cross.cross)
+
   const [missionTimer, setMissionTimer] = useState<number>(0);
   const [relayActive, setRelayActive] = useState<boolean>(false);
   const [buzzerActive, setBuzzerActive] = useState<boolean>(false);
@@ -91,7 +96,7 @@ const Cross: React.FC<CrossInterface> = ({
           <Image src={crossImage} alt="Cross Image" width={540} height={400} />
         </div>
         <div className="absolute left-1/2 top-28 translate-x-[-16px] ">
-          <LEDs id={id} />
+          <LEDs crossIndex={index} />
         </div>
         <div className="absolute left-1/2 -translate-x-[51%]  top-96 w-fit">
           <div className="flex flex-row gap-1 -rotate-90 w-28  bg-black scale-90">
@@ -102,7 +107,7 @@ const Cross: React.FC<CrossInterface> = ({
       </div>
       
       <div className="h-full w-[250px]">
-        <RightToolbar crossIndex={index}/>
+        <RightToolbar missionTimerChangeFunction={handleMissionTimerChange} crossIndex={index}/>
       </div>
     </div>
   );

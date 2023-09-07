@@ -102,7 +102,7 @@ const setCrossByID = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
     try {
         const { id } = req.params;
         const updatedCollection = req.body;
-        const updateProcess = yield crossModel_1.default.findByIdAndUpdate(id, updatedCollection, { new: true });
+        const updateProcess = yield crossModel_1.default.findByIdAndUpdate(id, { $set: Object.assign(Object.assign({}, updatedCollection), { 'scoreVal': updatedCollection.scoreVal }) }, { new: true });
         if (!updateProcess) {
             return res.status(404).json({
                 status: false,

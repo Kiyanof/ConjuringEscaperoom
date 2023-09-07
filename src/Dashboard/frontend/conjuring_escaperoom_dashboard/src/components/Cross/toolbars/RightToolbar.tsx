@@ -9,14 +9,15 @@ import Score from "../sections/Scores";
 
 interface RightToolbar extends ToolbarInterface {
     crossIndex?: number;
+    missionTimerChangeFunction: (inp: number) => void,
 }
 
-const RightToolbar: React.FC<RightToolbar> = ({crossIndex = 0}) => {
+const RightToolbar: React.FC<RightToolbar> = ({missionTimerChangeFunction, crossIndex = 0}) => {
 
     return (
         <Toolbar>
             <Section index={3} title="وقفه ها" icon={faClock}>
-                <TimeFields crossIndex={crossIndex} missionTimerChangeFunction={() => null}/>
+                <TimeFields crossIndex={crossIndex}  missionTimerChangeFunction={missionTimerChangeFunction}/>
             </Section>
             <Section index={4} title="مدیریت امتیاز" icon={faDigitalTachograph}>
                 <Score crossIndex={crossIndex}/>
