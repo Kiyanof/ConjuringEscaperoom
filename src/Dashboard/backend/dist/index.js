@@ -20,6 +20,9 @@ const database_1 = __importDefault(require("./config/database"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const cors_2 = __importDefault(require("./config/cors"));
 const crossRouter_1 = __importDefault(require("./routes/crossRouter"));
+const recieverRouter_1 = __importDefault(require("./routes/recieverRouter"));
+const goblinFinder_1 = __importDefault(require("./routes/goblinFinder"));
+const gameRouter_1 = __importDefault(require("./routes/gameRouter"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = parseInt(process.env.APP_PORT || '8000', 10);
@@ -40,6 +43,10 @@ app.get('/', (req, res) => {
     res.send("Hello World");
 });
 app.use('/cross', crossRouter_1.default);
+app.use('/goblinFinder', goblinFinder_1.default);
+app.use('/goblinFinder', goblinFinder_1.default);
+app.use('/reciever', recieverRouter_1.default);
+app.use('/game', gameRouter_1.default);
 function startServer() {
     return __awaiter(this, void 0, void 0, function* () {
         try {

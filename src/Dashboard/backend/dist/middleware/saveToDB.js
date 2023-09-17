@@ -18,6 +18,7 @@ const saveToDB = (model) => (req, res, next) => __awaiter(void 0, void 0, void 0
         res.status(201).json({
             message: "Data saved to MongoDB",
             data: req.body,
+            saveItem: newItem
         });
         console.log('success');
     }

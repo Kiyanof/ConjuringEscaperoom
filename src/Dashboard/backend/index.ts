@@ -9,6 +9,11 @@ import bodyParser from 'body-parser';
 import corsConfigs from './config/cors';
 
 import crossRouter from './routes/crossRouter'
+import recieverRouter from './routes/recieverRouter'
+import goblinFinderRouter from './routes/goblinFinder'
+import gameRouter from './routes/gameRouter'
+
+
 
 dotenv.config();
 
@@ -37,6 +42,11 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/cross', crossRouter)
+app.use('/goblinFinder', goblinFinderRouter)
+app.use('/goblinFinder', goblinFinderRouter)
+app.use('/reciever', recieverRouter)
+app.use('/game', gameRouter)
+
 
 async function startServer() {
   try {

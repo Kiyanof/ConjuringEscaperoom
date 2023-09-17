@@ -1,5 +1,5 @@
 // In your Redux store folder, create a file named "themeSlice.ts"
-import { updateCross } from '@/api/updateCross';
+import { updateModel } from '@/api/updateModel';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 // Define the initial state for the theme
@@ -70,7 +70,7 @@ const crossSlice = createSlice({
       newState[index] = action.payload.value
       console.log(newState)
       state.cross = newState
-      updateCross(id, action.payload.value)
+      updateModel(id, action.payload.value, 'cross')
     },
     setToolbarView: (state, action: PayloadAction<number>) => {
       const newToolbarVeiws = [...state.toolbarViews]

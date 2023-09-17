@@ -12,12 +12,14 @@ import Clock from "@/components/navigation/Clock";
 import DarkModeToggle from "@/components/navigation/DarkModeToggle";
 import { useEffect } from "react";
 import { initiateCross } from "@/redux/reducers/cross";
-import { fetchCrossInitialState } from "@/api/initiateRedux";
+import { fetchInitialState } from "@/api/initiateRedux";
 import { AbsoluteIconButton } from "@/components/AbsoluteIconButton";
 import { faBars, faMusic } from "@fortawesome/free-solid-svg-icons";
 import RelayPage from "./Relay";
 import PlayerPage from "./Player";
 import SettingPage from "./Setting";
+import { initiateRecievers } from "@/redux/reducers/reciever";
+import Game from "./Game";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,12 +28,12 @@ export default function Home() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (initialFunc: Function, model: string) => {
       try {
-        const data = await fetchCrossInitialState();
+        const data = await fetchInitialState(model);
         if (data !== null) {
 
-          dispatch(initiateCross({value: data}));
+          dispatch(initialFunc({value: data}));
         } else {
           // Handle the case when data is null, e.g., show an error message
         }
@@ -41,7 +43,9 @@ export default function Home() {
       }
     };
 
-    fetchData();
+    fetchData(initiateCross, 'cross');
+    fetchData(initiateRecievers, 'reciever');
+
   }, [dispatch]);
 
   const isDarkMode = useSelector((state: RootState) => state.theme.darkMode);
@@ -56,6 +60,7 @@ export default function Home() {
   ];
 
   const tabs = [
+    <Game key={0}/>,
     <CrossPage key={1}/>,
     <MusicBoxPage key={2}/>, 
     <TagFinderPage key={3}/>, 
@@ -87,7 +92,7 @@ export default function Home() {
           </nav>
           <main className={`h-[88%]`}>
             {tabs.map((tab, index) => (
-              <div className={`${activeTab !== (index + 1) ? 'hidden' : 'block'} h-full overflow-auto p-5`} key={index} >
+              <div className={`${activeTab !== index ? 'hidden' : 'block'} h-full overflow-auto p-5`} key={index} >
                 {tab}
               </div>
             ))}

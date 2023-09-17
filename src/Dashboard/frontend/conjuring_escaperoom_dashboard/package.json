@@ -19,10 +19,12 @@
     "autoprefixer": "^10.4.15",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
+    "jsmediatags": "^3.9.7",
     "next": "13.4.19",
     "postcss": "^8.4.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-modern-calendar-datepicker": "^3.1.6",
     "react-redux": "^8.1.2",
     "react-slick": "^0.29.0",
     "redux-thunk": "^2.4.2",
@@ -33,6 +35,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@types/jsmediatags": "^3.9.3",
     "@types/react-slick": "^0.23.10",
     "@types/uuid": "^9.0.2"
   }

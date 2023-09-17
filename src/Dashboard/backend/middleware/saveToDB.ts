@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import { Model, Schema } from "mongoose";
-import * as path from 'path';
 
 const saveToDB = (model: Model<any>) => async (
   req: Request,
@@ -16,6 +15,7 @@ const saveToDB = (model: Model<any>) => async (
     res.status(201).json({
       message: "Data saved to MongoDB",
       data: req.body,
+      saveItem: newItem
     });
     console.log('success')
   } catch (error) {

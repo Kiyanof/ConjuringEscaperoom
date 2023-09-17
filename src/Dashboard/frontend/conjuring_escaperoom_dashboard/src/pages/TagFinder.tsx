@@ -1,9 +1,11 @@
+import TagFinder from "@/components/TagFinder/Index";
+
 const TagFinderPage = () => {
 
     return (
-        <>
-            TagFinder Page
-        </>
+        <div className="h-[95%]">
+            <TagFinder />
+        </div>
     )
 }
 

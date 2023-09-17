@@ -1,6 +1,6 @@
-export const fetchCrossInitialState = async () => {    
+export const fetchInitialState = async (model: string) => {    
   try {
-    const response = await fetch('http://localhost:8000/cross/getAll');
+    const response = await fetch(`http://localhost:8000/${model}/getAll`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
