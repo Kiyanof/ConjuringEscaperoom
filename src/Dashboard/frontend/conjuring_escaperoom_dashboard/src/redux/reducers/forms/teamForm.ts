@@ -7,6 +7,7 @@ interface TeamFormState {
 export const TeamFormSlice = createSlice({
   name: "teamForm",
   initialState: {
+    refresh: true,
     counterActive: true,
     helpTexts: {
       counterInp: "تعداد اعضا را وارد کنید",
@@ -15,6 +16,9 @@ export const TeamFormSlice = createSlice({
     counter: 4,
   },
   reducers: {
+    setRefresh: (state, action) => {
+      state.refresh = action.payload.value
+    },
     setCounter: (state, action) => {
       state.counter = action.payload
     },
@@ -25,6 +29,6 @@ export const TeamFormSlice = createSlice({
 });
 
 
-export const { setCounter, setCounterActive } = TeamFormSlice.actions
+export const { setCounter, setCounterActive, setRefresh } = TeamFormSlice.actions
 export default TeamFormSlice.reducer
 

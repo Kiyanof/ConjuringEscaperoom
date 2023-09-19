@@ -5,8 +5,11 @@ const schema = new mongoose.Schema(
         firstName: String,
         lastName: String,
         phoneNumber: String,
-        age: Number,
-        teamID: String,
+        age: String,
+        name: String,
+        exprience: String,
+        date: String,
+        reference: String,
     }
 )
 

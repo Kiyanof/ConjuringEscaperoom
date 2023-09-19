@@ -6,6 +6,7 @@ import goblinFinder from './goblinFinder';
 import recieverReducer from './reciever';
 import teamForm from './forms/teamForm';
 import gameForm from './forms/gameForm';
+import playerForm from './forms/playerForm'
 
 // Import other reducers as needed
 
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   reciever: recieverReducer,
   teamForm: teamForm,
   gameForm: gameForm,
+  playerForm: playerForm
   
   // Add other reducers here
 });
