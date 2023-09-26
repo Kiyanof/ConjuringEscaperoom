@@ -62,7 +62,7 @@ const Signal: React.FC<SignalComponentInterface> = ({ signals = [] }) => {
         <div
           key={index}
           className="flex flex-row items-center sm:justify-around justify-start flex-wrap
-                        p-4 w-full hover:bg-slate-200 cursor-pointer sm:h-[180px] h-full gap-2
+                        p-4 w-full hover:bg-slate-200 dark:hover:bg-slate-950 cursor-pointer sm:h-[180px] h-full gap-2
                         "
         >
           <FontAwesomeIcon className="hover:text-red-500" icon={faDeleteLeft} />
@@ -77,7 +77,7 @@ const Signal: React.FC<SignalComponentInterface> = ({ signals = [] }) => {
             />
           ))}
 
-          <span className="inline-flex gap-2 items-center text-xs border border-slate-300 p-1 rounded-md">
+          <span className="inline-flex gap-2 items-center text-xs border border-slate-300 dark:border-slate-800 p-1 rounded-md">
             <FontAwesomeIcon icon={faWandSparkles} /> فعال :
             <div dir="ltr">
               <Switch className="mt-3" color="danger" checked={item.State} />

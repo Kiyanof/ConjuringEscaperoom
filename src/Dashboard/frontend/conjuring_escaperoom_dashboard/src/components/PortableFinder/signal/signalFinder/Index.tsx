@@ -18,7 +18,7 @@ const SignalSender: React.FC<SignalSenderInterface> = ({
 }) => {
   const signals = useSelector((state: RootState) => state.reciever.recivers)
 
-  const defaultClassName = `w-full h-full border rounded-lg shadow-sm`;
+  const defaultClassName = `w-full h-full border rounded-lg shadow-sm border-slate-200 dark:border-slate-800`;
 
   return (
     <div className={`${defaultClassName} ${className}`} {...props}>

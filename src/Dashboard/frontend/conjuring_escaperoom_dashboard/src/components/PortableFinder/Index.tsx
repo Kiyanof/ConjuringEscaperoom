@@ -13,11 +13,11 @@ const Index: React.FC<Index> = ({className, ...props}) => {
     const defaultClassName = `flex sm:flex-row flex-col sm:justify-between justify-center w-full  items-cetner gap-2 p-4 h-full overflow-auto`
     return (
         <div className={`${defaultClassName} ${className}`} {...props}>
-            <div className="sm:w-1/3 w-full  h-full">
+            <div className="sm:w-1/3 w-full  h-full border-slate-200">
                 <SignalSender />
             </div>
             <div className="sm:w-1/3  w-full h-full">
-                <div className="w-full h-full border rounded-lg shadow-sm">
+                <div className="w-full h-full border rounded-lg shadow-sm border-slate-200 dark:border-slate-800">
                     <SignalMeter />
                 </div>
             </div>

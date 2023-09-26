@@ -28,7 +28,7 @@ const EditableField: React.FC<EditableFieldInterface> = ({icon = faIcons, title 
     }, [value, val])
 
   return (
-    <span className="inline-flex gap-2 items-center text-xs border border-slate-300 p-1 rounded-md">
+    <span className="inline-flex gap-2 items-center text-xs border border-slate-300 dark:border-slate-800 p-1 rounded-md">
       <FontAwesomeIcon icon={icon} />
        {title}: 
       <h5 className="rounded-sm p-1" dir="ltr" contentEditable onInput={handleInputChange}>
