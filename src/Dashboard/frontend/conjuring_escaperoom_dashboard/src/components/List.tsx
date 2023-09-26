@@ -11,7 +11,7 @@ interface ListInterface extends HTMLAttributes<HTMLUListElement> {
 const List: React.FC<ListInterface> = ({children, hoverable = false, border = true, itemClassName, className, ...props}) => {
 
     return (
-        <ul className={`px-2 py-4 bg-slate-100 dark:bg-indigo-950  rounded-md
+        <ul className={`px-2 py-4 bg-slate-100 dark:bg-slate-900  rounded-md
                         justify-center items-center  g-0 ${border && 'border border-slate-300 dark:border-indigo-900'}
                         ${className}`} {...props}>
             {children.map((item, index) => (

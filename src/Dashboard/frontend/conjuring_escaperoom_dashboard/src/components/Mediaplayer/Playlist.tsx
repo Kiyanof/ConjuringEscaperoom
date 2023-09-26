@@ -260,7 +260,7 @@ useEffect(() => {
           </select> 
         </h1>
         <div dir="rtl" className="flex flex-row items-center">
-          <Input value={newPlaylist} onChange={(event) => setNewPlaylist(event.target.value)} placeholder="نام گروه را وارد کنید" className="w-[160px]"/>
+          <Input color="danger" value={newPlaylist} onChange={(event) => setNewPlaylist(event.target.value)} placeholder="نام گروه را وارد کنید" className="w-[160px]"/>
           <Button onClick={() => addPlaylist()}>+</Button>  
           <Button onClick={() => removePlaylist()}>-</Button>   
         </div>
