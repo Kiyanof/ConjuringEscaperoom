@@ -18,7 +18,11 @@ const Range: React.FC<RangeProps> = ({ min, max, value, onChange, color, showVal
   };
 
   useEffect(() => {
-    setAccentColor(color ? color : 'primary')
+    setVal(value)
+  }, [value])
+
+  useEffect(() => {
+    setAccentColor(color ? color : 'primary-50')
   }, [color])
 
   return (

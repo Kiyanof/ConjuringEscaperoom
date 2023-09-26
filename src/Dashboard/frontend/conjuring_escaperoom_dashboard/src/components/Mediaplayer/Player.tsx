@@ -7,7 +7,6 @@ interface PlayerInterface {
 }
 
 export const isMusicFile = (fileName: string | null): boolean => {
-    console.log(fileName)
     if(fileName){
         const musicFileExtensions = ['.mp3', '.wav', '.ogg', '.flac', '.aac', '.wma'];
         const fileExtension = fileName.slice(fileName.lastIndexOf('.'));  
@@ -28,19 +27,25 @@ export const isVideoFile = (fileName: string | null): boolean => {
   
 
 const Player: React.FC<PlayerInterface> = ({item, mediaElement, ...props}) => {
-const mediaRef = useRef(mediaElement)
+
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+    const videoRef = useRef<HTMLVideoElement | null>(null);
 
     useEffect(() => {
-
-    }, [item])
+        if (mediaElement && isMusicFile(mediaElement.src)) {
+            audioRef.current = mediaElement as HTMLAudioElement;
+        } else if (mediaElement && isVideoFile(mediaElement.src)) {
+            videoRef.current = mediaElement as HTMLVideoElement;
+        }
+    }, [mediaElement])
 
     return (
         <div className="bg-transparent border border-slate-200 dark:border-slate-800 p-0 m-2 rounded-xl">
             {item && 
                 <>
-                    {isMusicFile(item.type ? item.type : '')  ? 
-                        <audio controls ref={mediaRef} src={item.src} /> :
-                        isVideoFile(item.type ? item.type : '') ? <video ref={mediaRef} src={item.src}/> : 
+                    {!isMusicFile(item.type ? item.type : '')  ? 
+                        <audio ref={audioRef} src={item.src} /> :
+                        isVideoFile(item.type ? item.type : '') ? <video ref={videoRef} src={item.src}/> : 
                                             <div className="flex flex-row justify-center items-center w-full h-full">
                                                 <h6 className="text-danger-500">File Type is Wrong</h6>
                                             </div>

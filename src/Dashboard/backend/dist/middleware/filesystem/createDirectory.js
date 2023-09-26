@@ -10,12 +10,32 @@ const path_1 = __importDefault(require("path"));
 */
 const storageDir = process.env.STORAGE_PATH;
 const createDir = (directroyPath) => {
+    const fullPath = path_1.default.join(__dirname, `../../${storageDir}/`, directroyPath);
     return (req, res, next) => {
-        const fullPath = path_1.default.join(__dirname, `../../${storageDir}/`, directroyPath);
         if (!fs_1.default.existsSync(fullPath)) {
-            fs_1.default.mkdirSync(fullPath, { recursive: true });
+            try {
+                fs_1.default.mkdirSync(fullPath, { recursive: true });
+                res.status(200).json({
+                    state: true,
+                    msg: "Directory create successfully.",
+                    error: null,
+                });
+            }
+            catch (error) {
+                res.status(500).json({
+                    state: false,
+                    msg: "Error creating directory!",
+                    error: error,
+                });
+            }
         }
-        next();
+        else {
+            res.status(200).json({
+                state: false,
+                msg: "Directory already exists.",
+                error: null,
+            });
+        }
     };
 };
 exports.default = createDir;

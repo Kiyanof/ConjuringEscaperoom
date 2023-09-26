@@ -7,6 +7,12 @@ import recieverReducer from './reciever';
 import teamForm from './forms/teamForm';
 import gameForm from './forms/gameForm';
 import playerForm from './forms/playerForm'
+import tagReducer from './tag'
+import relayReducer from './relay'
+import mediaplayerReducer from './mediaplayer'
+
+
+
 
 // Import other reducers as needed
 
@@ -17,7 +23,11 @@ const rootReducer = combineReducers({
   reciever: recieverReducer,
   teamForm: teamForm,
   gameForm: gameForm,
-  playerForm: playerForm
+  playerForm: playerForm,
+  tag: tagReducer,
+  relay: relayReducer,
+  mediaplayer: mediaplayerReducer,
+
   
   // Add other reducers here
 });

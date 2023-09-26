@@ -12,6 +12,14 @@ import crossRouter from './routes/crossRouter'
 import recieverRouter from './routes/recieverRouter'
 import goblinFinderRouter from './routes/goblinFinder'
 import gameRouter from './routes/gameRouter'
+import tagRouter from './routes/tagRouter'
+import readerRouter from './routes/readerRouter'
+import relayRouter from './routes/relayRouter'
+import mediaPlayerRouter from './routes/mediaPlayerRouter'
+
+
+
+
 
 
 
@@ -46,7 +54,10 @@ app.use('/goblinFinder', goblinFinderRouter)
 app.use('/goblinFinder', goblinFinderRouter)
 app.use('/reciever', recieverRouter)
 app.use('/game', gameRouter)
-
+app.use('/tag', tagRouter)
+app.use('/reader', readerRouter)
+app.use('/relay', relayRouter)
+app.use('/mediaplayer', mediaPlayerRouter)
 
 async function startServer() {
   try {

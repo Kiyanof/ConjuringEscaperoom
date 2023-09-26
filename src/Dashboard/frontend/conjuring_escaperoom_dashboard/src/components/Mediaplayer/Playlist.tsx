@@ -14,13 +14,17 @@ import {
   faPlay,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { SetStateAction, useCallback, useEffect, useState } from "react";
 import DragAndDropFileUpload from "../DragDropFile";
 import jsmediatags from "jsmediatags";
 import { PictureType } from "jsmediatags/types";
 import { isVideoFile } from "./Player";
-import axios, { AxiosResponse } from "axios";
-import { stringify } from "querystring";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/redux";
+import Button from "../Button";
+import Input from "../Form/Input";
+import { initiatePlaylist, pushPlaylist, setRefresh } from "@/redux/reducers/mediaplayer";
+import { fetchInitialState } from "@/api/initiateRedux";
 
 export interface MediaInterface {
   src: string;
@@ -28,7 +32,7 @@ export interface MediaInterface {
   artist?: string;
   duration?: number;
   album?: string;
-  coverImage?: string | StaticImageData | PictureType;
+  coverImage?: string | StaticImageData;
   genre?: string;
   releaseDate?: string;
   size?: number;
@@ -44,97 +48,7 @@ interface PlaylistInterface {
 }
 
 const mediaData: MediaInterface[] = [
-  {
-    src: "https://example.com/media1.mp3",
-    title: "blue sky & the moon",
-    artist: "Artist 1",
-    duration: 180,
-    album: "Album 1",
-    coverImage: musicImg,
-    genre: "Pop",
-    releaseDate: "2001",
-    size: 89471280,
-    downloadable: true,
-    type: "mp3",
-  },
-  {
-    src: "https://example.com/media2.mp4",
-    title: "Song 2",
-    artist: "Artist 2",
-    duration: 240,
-    album: "Album 2",
-    coverImage: videoImg,
-    genre: "Rock",
-    releaseDate: "2003",
-    size: 43522,
-    downloadable: true,
-    type: "mp4",
-  },
-  {
-    src: "https://example.com/media3.mp3",
-    title: "Song 3",
-    artist: "Artist 3",
-    duration: 210,
-    album: "Album 3",
-    coverImage: musicImg,
-    genre: "Electronic",
-    releaseDate: "2019",
-    size: 235135,
-    downloadable: false,
-    type: "mp3",
-  },
-  {
-    src: "https://example.com/media4.mp3",
-    title: "Song 4",
-    artist: "Artist 4",
-    duration: 195123,
-    album: "Album 4",
-    coverImage: musicImg,
-    genre: "R&B",
-    releaseDate: "2020",
-    size: 432554,
-    downloadable: false,
-    type: "mp3",
-  },
-  {
-    src: "https://example.com/media5.mp4",
-    title: "Song 5",
-    artist: "Artist 5",
-    duration: 220,
-    album: "Album 5",
-    coverImage: videoImg,
-    genre: "Hip Hop",
-    releaseDate: "2024",
-    size: 365313,
-    downloadable: true,
-    type: "mp4",
-  },
-  {
-    src: "https://example.com/media5.mp4",
-    title: "Song 5",
-    artist: "Artist 5",
-    duration: 220,
-    album: "Album 5",
-    coverImage: videoImg,
-    genre: "Hip Hop",
-    releaseDate: "2022",
-    size: 365313,
-    downloadable: true,
-    type: "mp4",
-  },
-  {
-    src: "https://example.com/media5.mp4",
-    title: "Song 5",
-    artist: "Artist 5",
-    duration: 220,
-    album: "Album 5",
-    coverImage: videoImg,
-    genre: "Hip Hop",
-    releaseDate: "2021",
-    size: 365313,
-    downloadable: true,
-    type: "mp3",
-  },
+  
 ];
 
 export const calcDuration = (duration: number) => {
@@ -164,13 +78,21 @@ const shortenTitle = (title: string, maxChar: number): string => {
 
 const Playlist: React.FC<PlaylistInterface> = ({
   items = mediaData,
-  title = "Playlist",
+  title = "test",
   onClick,
   hidden = false,
   ...props
 }) => {
+
   const [active, setActive] = useState(-1);
+  const playlists = useSelector((state: RootState) => state.mediaplayer.playlists)
   const [playlistItems, setPlaylistItems] = useState<MediaInterface[]>(items);
+  const [newPlaylist, setNewPlaylist] = useState('')
+  const [activePlaylist, setActivePlaylist] = useState(playlists.length > 1 ? 1 : 0)
+
+
+  const dispatch = useDispatch()
+ 
 
   const handleClick = (item: MediaInterface, index: number) => {
     onClick && onClick(item);
@@ -179,19 +101,19 @@ const Playlist: React.FC<PlaylistInterface> = ({
 
   const [uploadedFiles, setUploadedFiles] = useState<FileList | undefined>();
 
-  const handleFileUpload = async (files: FileList) => {
+  const handleFileUpload = useCallback(async (files: FileList) => {
     const newFiles = Array.from(files);
-    //setUploadedFiles(files);
-    const newItems = [...playlistItems];
+    setUploadedFiles(files);
+    const newItems:MediaInterface[] = [];
     const formData = new FormData();
     newFiles.forEach((file) => {
       jsmediatags.read(file, {
-        onSuccess: (tag) => {
+        onSuccess: async (tag) => {
           const fileTag: MediaInterface = {
             src: URL.createObjectURL(file),
             title: file.name,
             artist: tag?.tags?.artist,
-            duration: +tag?.tags?.duration,
+            duration: await getDuration(file),
             album: tag?.tags?.album, 
             coverImage: isVideoFile(file.name) ? videoImg : musicImg,
             genre: tag?.tags?.genre,
@@ -201,40 +123,149 @@ const Playlist: React.FC<PlaylistInterface> = ({
             type: file.name.split(".")[file.name.split.length - 1],
           };
           newItems.push(fileTag);
-          formData.append("metadata", JSON.stringify(fileTag));
-
-          const response2 = fetch("http://localhost:8000/mediaplayer/save", {
-            method: "POST",
-            body: JSON.stringify({ ...fileTag, src: "", coverImage: "" , playlist: title}),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
         },
       });
       formData.append("files", file);
     });
-    try {
-      const response1 = await fetch(
-        "http://localhost:8000/mediaplayer/upload",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-    } catch (error) {
-      console.error("Error uploading files:", error);
+    if(activePlaylist != 0){
+      try {
+        const response = await fetch(
+          `http://localhost:8000/mediaplayer/${playlists[activePlaylist]}/upload`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+      } catch (error) {
+        console.error("Error uploading files:", error);
+      }
+      setPlaylistItems([...playlistItems, ...newItems]);
     }
-    setPlaylistItems(newItems);
-  };
+    
+  }, [activePlaylist, playlistItems]);
 
-  useEffect(() => {
-    setPlaylistItems(items);
-  }, [items]);
+  const addPlaylist = () => {
+      dispatch(pushPlaylist({value: newPlaylist}))
+  }
+
+  const removePlaylist = useCallback(() => {
+    const response = fetch(`http://localhost:8000/mediaplayer/${playlists[activePlaylist]}/delete`, {
+      method: 'DELETE'
+    })
+    setPlaylistItems([])
+    dispatch(setRefresh({value: true}))
+}, [activePlaylist, playlists])
+
+const initiatePlaylistFunc = (result: Object[]) => {
+    dispatch(initiatePlaylist({value: result}))
+}
+
+const getDuration = async (file: Blob) => {
+  // Create a temporary audio element
+  const audioElement = new Audio();
+  audioElement.src = URL.createObjectURL(file);
+
+  const durationPromise = new Promise<number>((resolve) => {
+    audioElement.addEventListener('loadedmetadata', () => {
+      // Access the duration property
+      const duration = audioElement.duration;
+      resolve(duration);
+    });
+  });
+
+  // Wait for the duration to be resolved
+  const duration = await durationPromise;
+
+  // Remove the event listener and destroy the temporary audio element
+  audioElement.removeEventListener('loadedmetadata', () => {});
+  audioElement.src = '';
+
+  return parseInt(duration.toString(), 10)
+  
+}
+
+const fetchData = async (index: number) => {
+  try {
+    const response = await fetch(`http://localhost:8000/mediaplayer/${playlists[index]}/listMedia/`, {
+      credentials: 'same-origin',
+      method: 'GET'
+    });
+    const data = await response.json();
+
+    // Use Promise.all() to await all async operations inside the map
+    // Initialize newFiles outside of the loop
+const newFiles: MediaInterface[] = [];
+
+const medias = await Promise.all(data.result.map(async (item: any) => {
+  const response = await fetch(`http://localhost:8000/mediaplayer/${playlists[index]}/media/${item.name}/get`);
+  if (response.ok) {
+    const file = await response.blob();
+
+    // Wrap jsmediatags.read in a Promise to make it asynchronous
+  const tag: any = await new Promise((resolve) => {
+    jsmediatags.read(file, {
+      onSuccess: (tag) => {
+        resolve(tag);
+      },
+    });
+  });
+    
+    const fileTag: MediaInterface = {
+      src: URL.createObjectURL(file),
+      title: item.name,
+      artist: tag?.tags?.artist,
+      duration: await getDuration(file),
+      album: tag?.tags?.album,
+      coverImage: isVideoFile(item.name) ? videoImg : musicImg,
+      genre: tag?.tags?.genre,
+      releaseDate: tag?.tags?.year,
+      size: file.size,
+      downloadable: true,
+      type: item.name.split(".")[item.name.split.length - 1],
+    };
+    newFiles.push(fileTag);
+  }
+  return null; // Handle fetch errors or non-ok responses
+}));
+
+// Log the newFiles array outside of the loop
+  setPlaylistItems(newFiles);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+const handleActivePlaylist = (index: number) => {
+    setActivePlaylist(index)
+}
+
+useEffect(() => {
+  if(playlists.length > 1) setActivePlaylist(1)
+}, [playlists])
+
+useEffect(() => {
+  if(activePlaylist > 0)
+    fetchData(activePlaylist)
+}, [activePlaylist])
 
   return (
     <Card className={``} hidden={hidden} hiddenable>
-      <h1 className="w-full text-center">{title}</h1>
+      <div className="flex flex-row justify-between items-center">
+        <h1 className="">
+          <select className="p-3 rounded-lg bg-slate-100 dark:bg-slate-900 cursor-pointer hover:bg-slate-200 border border-slate-200 dark:border-slate-800">
+          {playlists.map((item, index) => (
+            index > 0 && <option onClick={() => handleActivePlaylist(index)} key={index}>{item}</option>
+          ))}
+          </select> 
+        </h1>
+        <div dir="rtl" className="flex flex-row items-center">
+          <Input value={newPlaylist} onChange={(event) => setNewPlaylist(event.target.value)} placeholder="نام گروه را وارد کنید" className="w-[160px]"/>
+          <Button onClick={() => addPlaylist()}>+</Button>  
+          <Button onClick={() => removePlaylist()}>-</Button>   
+        </div>
+      </div>
+      
       <Divider />
       <List hoverable border className="max-h-[320px] overflow-scroll">
         {playlistItems.map((item: MediaInterface, index: number) => (

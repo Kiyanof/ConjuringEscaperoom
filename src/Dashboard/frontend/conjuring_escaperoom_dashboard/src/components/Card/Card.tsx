@@ -48,7 +48,7 @@ const Card: React.FC<CardProps> = ({hiddenable = false, hidden = false, classNam
                         border border-slate-200
                         shadow-lg dark:shadow-md dark:hover:shadow-sm hover:shadow-sm dark:shadow-zinc-700
                         dark:border-slate-800 
-                        transition ease-in-out duration-200`}
+                        transition-all ease-in duration-300`}
                         style={hiddenable ? {width: `${size.width}%`, height: `${size.height}%`} : {}}>
             {children}
         </div>

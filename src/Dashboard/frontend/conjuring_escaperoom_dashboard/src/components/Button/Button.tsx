@@ -42,7 +42,7 @@ const Button: React.FC<ButtonProps> = ({sound, color, children, className, onCli
     const elementColor = color ? `border ${colorObject[color]}` : ``
 
     const classValue =   `
-                         py-2 px-4 my-2 mx-3
+                         pt-2 px-4 mt-2 mx-3
                          ${elementColor}   
                          ${className}
                          rounded-full

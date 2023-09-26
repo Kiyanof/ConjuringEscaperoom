@@ -23,6 +23,10 @@ const crossRouter_1 = __importDefault(require("./routes/crossRouter"));
 const recieverRouter_1 = __importDefault(require("./routes/recieverRouter"));
 const goblinFinder_1 = __importDefault(require("./routes/goblinFinder"));
 const gameRouter_1 = __importDefault(require("./routes/gameRouter"));
+const tagRouter_1 = __importDefault(require("./routes/tagRouter"));
+const readerRouter_1 = __importDefault(require("./routes/readerRouter"));
+const relayRouter_1 = __importDefault(require("./routes/relayRouter"));
+const mediaPlayerRouter_1 = __importDefault(require("./routes/mediaPlayerRouter"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = parseInt(process.env.APP_PORT || '8000', 10);
@@ -47,6 +51,10 @@ app.use('/goblinFinder', goblinFinder_1.default);
 app.use('/goblinFinder', goblinFinder_1.default);
 app.use('/reciever', recieverRouter_1.default);
 app.use('/game', gameRouter_1.default);
+app.use('/tag', tagRouter_1.default);
+app.use('/reader', readerRouter_1.default);
+app.use('/relay', relayRouter_1.default);
+app.use('/mediaplayer', mediaPlayerRouter_1.default);
 function startServer() {
     return __awaiter(this, void 0, void 0, function* () {
         try {

@@ -1,0 +1,40 @@
+"filename", "language", "JSON", "JSON with Comments", "TypeScript", "JavaScript", "TypeScript JSX", "comment", "blank", "total"
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/controllers/mediaPlayerController.ts", "TypeScript", 0, 0, 72, 0, 0, 0, 11, 83
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/controllers/mediaPlayerController.js", "JavaScript", 0, 0, 0, 59, 0, 0, 1, 60
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/index.js", "JavaScript", 0, 0, 0, 4, 0, 0, 0, 4
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/middleware/filesystem/createDirectory.js", "JavaScript", 0, 0, 0, 20, 0, 0, 0, 20
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/middleware/filesystem/ls copy.js", "JavaScript", 0, 0, 0, 18, 0, 0, 1, 19
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/middleware/filesystem/ls.js", "JavaScript", 0, 0, 0, 27, 0, 0, 1, 28
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/middleware/filesystem/rename.js", "JavaScript", 0, 0, 0, 32, 0, 0, 1, 33
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/middleware/filesystem/rm copy.js", "JavaScript", 0, 0, 0, 31, 0, 0, 1, 32
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/middleware/filesystem/rm.js", "JavaScript", 0, 0, 0, 31, 0, 0, 1, 32
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/middleware/filesystem/rmdir copy.js", "JavaScript", 0, 0, 0, 31, 0, 0, 1, 32
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/middleware/filesystem/rmdir.js", "JavaScript", 0, 0, 0, 31, 0, 0, 1, 32
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/models/relayModel.js", "JavaScript", 0, 0, 0, 13, 0, 0, 1, 14
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/routes/mediaPlayerRouter.js", "JavaScript", 0, 0, 0, 21, 0, 0, 1, 22
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/dist/routes/relayRouter.js", "JavaScript", 0, 0, 0, 21, 0, 0, 1, 22
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/index.ts", "TypeScript", 0, 0, 4, 0, 0, 0, -1, 3
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/middleware/filesystem/createDirectory.ts", "TypeScript", 0, 0, 18, 0, 0, 0, -2, 16
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/middleware/filesystem/ls.ts", "TypeScript", 0, 0, 22, 0, 0, 0, 2, 24
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/middleware/filesystem/rename.ts", "TypeScript", 0, 0, 27, 0, 0, 0, 6, 33
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/middleware/filesystem/rm.ts", "TypeScript", 0, 0, 26, 0, 0, 0, 5, 31
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/middleware/filesystem/rmdir.ts", "TypeScript", 0, 0, 26, 0, 0, 0, 5, 31
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/models/relayModel.ts", "TypeScript", 0, 0, 10, 0, 0, 0, 2, 12
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/routes/mediaPlayerRouter.ts", "TypeScript", 0, 0, 16, 0, 0, 0, 4, 20
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/backend/routes/relayRouter.ts", "TypeScript", 0, 0, 16, 0, 0, 0, 5, 21
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/.eslintrc.json", "JSON with Comments", 0, 0, 0, 0, 0, 0, -1, -1
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/package-lock.json", "JSON", 2, 0, 0, 0, 0, 0, 0, 2
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/package.json", "JSON", 2, 0, 0, 0, 0, 0, 0, 2
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/api/initiateRedux.ts", "TypeScript", 0, 0, 1, 0, 0, 0, 0, 1
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Mediaplayer/Control.tsx", "TypeScript JSX", 0, 0, 0, 0, -1, 0, 0, -1
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Mediaplayer/Index.tsx", "TypeScript JSX", 0, 0, 0, 0, 6, 27, -3, 30
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Mediaplayer/Player.tsx", "TypeScript JSX", 0, 0, 0, 0, 5, 0, 0, 5
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/Mediaplayer/Playlist.tsx", "TypeScript JSX", 0, 0, 0, 0, -57, 4, 9, -44
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/components/RelayFinder/Index.tsx", "TypeScript JSX", 0, 0, 0, 0, 59, 0, 9, 68
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/pages/Player.tsx", "TypeScript JSX", 0, 0, 0, 0, 2, 0, -1, 1
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/pages/Relay.tsx", "TypeScript JSX", 0, 0, 0, 0, 45, 3, 8, 56
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/redux/reducers/index.ts", "TypeScript", 0, 0, 4, 0, 0, 0, 2, 6
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/redux/reducers/mediaplayer.ts", "TypeScript", 0, 0, 41, 0, 0, 4, 7, 52
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/src/redux/reducers/relay.ts", "TypeScript", 0, 0, 52, 0, 0, 4, 7, 63
+"/Users/mohammadkiyan/Documents/GitHub/ConjuringEscaperoom/src/Dashboard/frontend/conjuring_escaperoom_dashboard/tailwind.config.js", "JavaScript", 0, 0, 0, 80, 0, 3, 5, 88
+"Total", "-", 4, 0, 335, 419, 59, 45, 90, 952

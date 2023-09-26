@@ -52,7 +52,7 @@ const Counter: React.FC<Counter> = ({
 
   return (
     <div className="flex flex-row gap-2 items-center justify-center" {...props}>
-      <FontAwesomeIcon icon={icon} />
+      {icon && <FontAwesomeIcon icon={icon} />}
       <span
         onClick={handleMinus}
         className="font-medium text-xl border  border-slate-300 py-2 px-2 rounded-full cursor-pointer  hover:shadow-lg  transition-all duration-200 ease-in-out dark:shadow-slate-700  dark:border-slate-700"

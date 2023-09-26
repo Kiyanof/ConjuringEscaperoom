@@ -44,6 +44,19 @@ const Game: React.FC<GameInterface> = ({}) => {
     "تاریخ",
     "معرف",
   ];
+
+  const fields = [
+    '',
+    'firstName',
+    'lastName',
+    'phoneNumber',
+    'age',
+    'name',
+    'exprience',
+    'date',
+    'reference'
+  ]
+  
   const fetchData = useCallback(
     async (initialFunc: Function, model: string) => {
       try {
@@ -66,6 +79,7 @@ const Game: React.FC<GameInterface> = ({}) => {
       fetchData(setPlayersList, "game/player");
       dispatch(setRefresh({ value: false }));
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refresh]);
 
   const handleEditFinish = (
@@ -73,7 +87,7 @@ const Game: React.FC<GameInterface> = ({}) => {
     fieldName: string,
     index: number
   ) => {
-
+    
     if (playersList) {
       const newPlayerList = [...playersList];
       newPlayerList[index][fieldName] = event.target.innerHTML;
@@ -101,6 +115,9 @@ const Game: React.FC<GameInterface> = ({}) => {
         handleEdit={handleEditFinish}
         headers={headers}
         data={playersList}
+        onRefresh={setRefresh}
+        fields={fields}
+        model="game/player"
       />
     </div>
   );

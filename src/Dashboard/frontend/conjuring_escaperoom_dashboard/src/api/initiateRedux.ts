@@ -5,6 +5,8 @@ export const fetchInitialState = async (model: string) => {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
+    console.log('why')
+    console.log(data.result)
     return data.result;
   } catch (error) {
     console.error('Error fetching initial state:', error);

@@ -46,7 +46,8 @@ const Button: React.FC<ButtonProps> = ({sound, color, children, className, onCli
                          ${elementColor}   
                          ${className}
                          rounded-full
-                         hover:shadow-md                
+                         hover:shadow-md   
+                         border-slate-200 dark:border-slate-800             
                          dark:hover:shadow-zinc-700
                          transition-all ease-in duration-150
                          ${isClicked ? 'rotate-3 transform-gpu"' : ''}

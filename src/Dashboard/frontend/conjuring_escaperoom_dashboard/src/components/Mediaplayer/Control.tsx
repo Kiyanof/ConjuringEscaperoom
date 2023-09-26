@@ -4,7 +4,6 @@ import { faDashboard, faList, faPause, faPlay, faStepBackward, faStepForward, fa
 import Range from "../Form/Range"
 import { ChangeEvent, MouseEventHandler, Ref, RefObject, useCallback, useEffect, useState } from "react"
 import { MediaInterface, calcDuration } from "./Playlist"
-import Steps from "../Navigation/Steps"
 import { isMusicFile, isVideoFile } from "./Player"
 
 interface MediaControlInterface {
@@ -17,20 +16,20 @@ interface MediaControlInterface {
 
 const MediaControl: React.FC<MediaControlInterface> = ({mediaElement, currentTime, handleRangeChange, playlistBtnOnClick, item, ...props}) => {
 
-    const [time, setTime] = useState(calcDuration(currentTime ? currentTime : 0))
+    const [time, setTime] = useState<number>(currentTime ? currentTime : 0)
     const [volume, setVolume] = useState(50)
     const [volumeColor, setVolumeColor] = useState('success')
     const [volumeIcon, setVolumeIcon] = useState(faVolumeDown)
     const [isPlay, setIsPlay] = useState(false)
 
     useEffect(() => {
+        setIsPlay(false)
         if(item && mediaElement) mediaElement.src = item.src
     }, [item, mediaElement])
     
     useEffect(() => {
         if(currentTime){
-            const newTime = calcDuration(currentTime)
-            setTime(newTime)
+            setTime(currentTime)
         }        
     }, [currentTime])
 
@@ -61,13 +60,25 @@ const MediaControl: React.FC<MediaControlInterface> = ({mediaElement, currentTim
     const iconsStyle = `text-slate-400 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-indigo-200 cursor-pointer`
 
     const handleRange = (e: ChangeEvent<HTMLInputElement>) => {
+        if(mediaElement) mediaElement.currentTime = +e.target.value
+
         if(handleRangeChange){
-            handleRangeChange(e.target.value)
+            handleRangeChange(+e.target.value)
+
         }
         else {
 
         }
     }
+
+    useEffect(() => {
+        if (mediaElement) {
+            mediaElement.addEventListener('timeupdate', (e) => {
+                const newTime = mediaElement.currentTime.toString()
+                setTime(parseInt(newTime, 10))
+            });
+        }
+    }, [mediaElement]);
 
     const play = (state: boolean) => {
         if(state) mediaElement?.play()
@@ -87,7 +98,7 @@ const MediaControl: React.FC<MediaControlInterface> = ({mediaElement, currentTim
         <div className="container">
             <div className="flex flex-col justify-center items-center gap-1">
                 <div className="w-full">
-                    <Range onChange={handleRange} min={0} max={item?.duration ? item.duration : 0} value={currentTime ? currentTime : 0} color="primary"/>
+                    <Range onChange={handleRange}  min={0} max={mediaElement?.duration? mediaElement.duration : 0} value={time} color="primary"/>
                 </div>
                 <div className="w-full px-2">
                     <span className="font-thin text-xs md:order-1 order-2">{item?.title}</span>
@@ -98,15 +109,15 @@ const MediaControl: React.FC<MediaControlInterface> = ({mediaElement, currentTim
                         <FontAwesomeIcon className={`${iconsStyle}`} icon={faDashboard} />
                     </div>
                     <div className="flex flex-row justify-center flex-grow items-center gap-3 order-2">
-                        <span className="font-thin text-sm md:order-1 order-2">{time}</span>
+                        <span className="font-thin text-sm md:order-1 order-2">{calcDuration(time)}/{calcDuration(mediaElement?.duration? parseInt(mediaElement.duration.toString(), 10) : 0)}</span>
                         <div className="grid grid-cols-3 md:order-2 order-1">
-                            <Button color="transparent">
+                            <Button className="rotate-6 hover:rotate-0 hover:translate-y-1" color="transparent">
                                 <FontAwesomeIcon icon={faStepBackward} />
                             </Button>
-                            <Button color="transparent" onClick={() => play(!isPlay)}>
+                            <Button className="hover:translate-y-1" color="transparent" onClick={() => play(!isPlay)}>
                                 <FontAwesomeIcon className="w-4 h-4" icon={!isPlay ? faPlay : faPause} />
                             </Button>
-                            <Button color="transparent">
+                            <Button className="-rotate-6 hover:rotate-0 hover:translate-y-1" color="transparent">
                                 <FontAwesomeIcon icon={faStepForward} />
                             </Button>
                         </div>
