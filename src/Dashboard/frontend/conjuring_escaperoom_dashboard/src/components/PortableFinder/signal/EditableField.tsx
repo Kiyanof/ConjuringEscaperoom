@@ -15,8 +15,7 @@ const EditableField: React.FC<EditableFieldInterface> = ({icon = faIcons, title 
 
     const [val, setVal] = useState(value)
     const handleInputChange = (e: FormEvent<HTMLHeadingElement>) => {
-
-        if(onInput) onInput(e)
+        if(onInput) onInput(e.currentTarget.innerHTML)
     }
 
     useEffect(() => {

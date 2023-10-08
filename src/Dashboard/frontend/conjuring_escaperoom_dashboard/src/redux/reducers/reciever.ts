@@ -3,6 +3,7 @@ import { updateModel } from '@/api/updateModel';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface recieverInterface {
+  [key: string]: string | number | boolean;
   _id: string,
   deviceName: string,
   ip: string,
@@ -28,12 +29,17 @@ const recieverSlice = createSlice({
       state.recivers = action.payload.value;
     },
     setReciever: (state, action) => {
+      const val = action.payload.value
       const newState = [...state.recivers]
       const index = action.payload.index
       const id = newState[index]._id
-      newState[index] = action.payload.value
+      newState[index] = {...action.payload.value}
+      console.log({val})
       state.recivers = newState
       updateModel(id, action.payload.value, 'reciever')
+    },
+    setState: (state, action) => {
+
     },
   },
 });

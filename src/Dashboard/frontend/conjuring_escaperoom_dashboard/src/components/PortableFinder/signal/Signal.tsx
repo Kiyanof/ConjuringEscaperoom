@@ -19,7 +19,9 @@ interface SignalComponentInterface {
 }
 
 const Signal: React.FC<SignalComponentInterface> = ({ signals = [] }) => {
-  const dispatch = useDispatch()
+  const [states, setStates] = useState<boolean[]>();
+
+  const dispatch = useDispatch();
 
   const fields = Array.from({ length: signals.length }, (v, k) => {
     return [
@@ -27,34 +29,45 @@ const Signal: React.FC<SignalComponentInterface> = ({ signals = [] }) => {
         icon: faMobile,
         title: "نام دستگاه",
         value: signals[k].deviceName,
-        onInput: (e: FormEvent<HTMLHeadingElement>) => handleOnInput(e, k, 0),
+        onInput: (e: string) => handleOnInput(e, k, 0),
       },
       {
         icon: faNetworkWired,
         title: "آدرس",
         value: signals[k].ip,
-        onInput: (e: FormEvent<HTMLHeadingElement>) => handleOnInput(e, k, 1),
+        onInput: (e: string) => handleOnInput(e, k, 1),
       },
       {
         icon: faNetworkWired,
         title: "کد",
         value: signals[k].BlueUUID,
-        onInput: (e: FormEvent<HTMLHeadingElement>) => handleOnInput(e, k , 2),
+        onInput: (e: string) => handleOnInput(e, k, 2),
       },
       {
         icon: faSignal,
         title: "سیگنال",
         value: signals[k].RSSI,
-        onInput: (e: FormEvent<HTMLHeadingElement>) => handleOnInput(e, k, 3),
+        onInput: (e: string) => handleOnInput(e, k, 3),
       },
     ];
   });
 
-  const handleOnInput = (e: FormEvent<HTMLHeadingElement>, index: number, field: number) => {
-      const newState = [...fields]
-      newState[index][field].value = e.target.value
-      dispatch(setReciever({index: index, value: newState}))
-  }
+  const handleOnInput = (e: string, index: number, field: number) => {
+    const newState = [...fields];
+    newState[index][field].value = e;
+    console.log(e)
+    dispatch(
+      setReciever({
+        index: index,
+        value: {
+          deviceName: newState[index][0].value,
+          ip: newState[index][1].value,
+          BlueUUID: newState[index][2].value,
+          RSSI: newState[index][3].value,
+        },
+      })
+    );
+  };
 
   return (
     <div className="w-full h-full">
@@ -73,14 +86,19 @@ const Signal: React.FC<SignalComponentInterface> = ({ signals = [] }) => {
               icon={field.icon}
               value={field.value}
               title={field.title}
-              onInput={field.onInput}
+              onInput={(e: string) => field.onInput(e)}
             />
           ))}
 
           <span className="inline-flex gap-2 items-center text-xs border border-slate-300 dark:border-slate-800 p-1 rounded-md">
             <FontAwesomeIcon icon={faWandSparkles} /> فعال :
             <div dir="ltr">
-              <Switch className="mt-3" color="danger" checked={item.State} />
+              <Switch
+                className="mt-3"
+                color="danger"
+                onClick={() => null}
+                checked={item.State}
+              />
             </div>
           </span>
         </div>
